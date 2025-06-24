@@ -1,53 +1,51 @@
 // Задача 1
 
 // Запропонуйте користувачу ввести число за допомогою prompt().
-// Збережіть введене значення у змінну number.
-// Перевірте, чи дорівнює змінна number числу 10:
+// Збережіть введене значення у змінну numberInput.
+// Перевірте, чи дорівнює змінна numberInput числу 10:
 //    Якщо так – виведіть повідомлення 'Вірно' у alert().
 //    Якщо ні – виведіть 'Невірно'.
 
 // Підказка: prompt завжди повертає рядок (String), тому перед перевіркою
 // перетворіть значення на число за допомогою Number().
 
-// const number = Number(prompt('Будь ласка, введіть довільне число від 1 до 10'));
+const numberInput = Number(
+  prompt('Будь ласка, введіть довільне число від 1 до 10')
+);
 
-if (number === 10) {
+if (numberInput === 10) {
   alert('Вірно');
 } else {
   alert('Не вірно');
 }
 
-alert(number === 10 ? 'Вірно' : 'невірно');
-
-console.log(number);
+console.log(numberInput);
 
 // Задача 2
 
-// У змінній min лежить випадкове число від 0 до 59.
+// У змінній randomMinute лежить випадкове число від 0 до 59.
 // Визначте, в яку чверть години потрапляє
 // це число (у першу, другу, третю чи четверту).
 // Виведіть в alert відповідне повідомлення, наприклад:
 // "10 входить в першу чверть"
 
-const min = Math.floor(Math.random() * (59 - 0) + 0);
+const randomMinute = Math.floor(Math.random() * 60);
 
-const min = Math.floor(Math.random() * (59 - 0) + 0);
-
-if (min >= 0 && min <= 15) {
-  alert(`ваше ${min} входить в першу чверть`);
-} else if (min <= 30) {
-  alert(`ваше ${min}  входить в другу чверть`);
-} else if (min <= 45) {
-  alert(`ваше ${min} входить третю чверть`);
+if (randomMinute >= 0 && randomMinute <= 15) {
+  alert(`ваше ${randomMinute} входить в першу чверть`);
+} else if (randomMinute <= 30) {
+  alert(`ваше ${randomMinute} входить в другу чверть`);
+} else if (randomMinute <= 45) {
+  alert(`ваше ${randomMinute} входить в третю чверть`);
 } else {
-  alert(`ваше ${min} входить в четверту чверть`);
+  alert(`ваше ${randomMinute} входить в четверту чверть`);
 }
 
-console.log(min);
+console.log(randomMinute);
 
-//задача 3
+// Задача 3
 
-// Змінна num може набувати 4 значення: '1', '2', '3' або '4'
+// Змінна seasonNum може набувати 4 значення: '1', '2', '3' або '4'
 // (запитуй це значення у користувача через prompt).
 // Якщо вона має значення '1', то у змінну result запишіть 'зима',
 // якщо має значення '2' - 'весна' і так далі.
@@ -57,28 +55,27 @@ console.log(min);
 // "Вибачте, але ви маєте ввести значення від 1 до 4 включно".
 // Значення змінної result виведіть в консоль.
 
-let num = +prompt('будь ласка, введіть довільне число від 1 до 4');
+let seasonNum = +prompt('будь ласка, введіть довільне число від 1 до 4');
+let seasonResult;
 
-let result;
-
-switch (num) {
+switch (seasonNum) {
   case 1:
-    result = 'зима';
+    seasonResult = 'зима';
     break;
   case 2:
-    result = 'весна';
+    seasonResult = 'весна';
     break;
   case 3:
-    result = 'літо';
+    seasonResult = 'літо';
     break;
   case 4:
-    result = 'осінь';
+    seasonResult = 'осінь';
     break;
   default:
-    result = 'вибачте, але ви маєте ввести значення від 1 до 4';
+    seasonResult = 'Вибачте, але ви маєте ввести значення від 1 до 4';
 }
 
-console.log(result);
+console.log(seasonResult);
 
 // Задача 4
 
@@ -88,17 +85,15 @@ console.log(result);
 // Корисне посилання для відображення годин та хвилин у потрібному форматі ('01' замість '1'):
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart#examples
 
-let minutes = +prompt('будь ласка, введіть довільне число');
+let totalMinutesInput = +prompt('будь ласка, введіть довільне число');
+let hourPart = Math.floor(totalMinutesInput / 60);
+let minutePart = totalMinutesInput % 60;
 
-let hours = Math.floor(minutes / 60);
-let min = minutes % 60;
+let formattedHours = String(hourPart).padStart(2, '0');
+let formattedMinutes = String(minutePart).padStart(2, '0');
 
-let formattedHours = String(hours).padStart(2, '0');
-let formattedMinutes = String(min).padStart(2, '0');
-
-let result = `${formattedHours}:${formattedMinutes}`;
-
-console.log(result);
+let timeResult = `${formattedHours}:${formattedMinutes}`;
+console.log(timeResult);
 
 // Задача 5
 
@@ -117,18 +112,18 @@ console.log(result);
 // то вивести в alert рядок "Добрий день!",
 // в іншому випадку вивести в alert рядок "Невірний пароль!"
 
-let login = prompt('будь ласка, введіть ваш логін');
+let loginInput = prompt('будь ласка, введіть ваш логін');
 
-if (login === 'Адмін') {
-  let password = prompt('будь ласка, введіть пароль');
-  if (password === 'Я головний') {
+if (loginInput === 'Адмін') {
+  let passwordInput = prompt('будь ласка, введіть пароль');
+  if (passwordInput === 'Я головний') {
     alert('Добрий день!');
-  } else if (password === '' || password === null) {
+  } else if (passwordInput === '' || passwordInput === null) {
     alert('Скасовано');
   } else {
     alert('Невірний пароль!');
   }
-} else if (login === '' || login === null) {
+} else if (loginInput === '' || loginInput === null) {
   alert('Скасовано');
 } else {
   alert('Я вас не знаю');
@@ -136,12 +131,12 @@ if (login === 'Адмін') {
 
 // Задача 6
 
-// // Використайте цикл while, щоб вивести в console всі числа від 0 до 20 включно.
+// Використайте цикл while, щоб вивести в console всі числа від 0 до 20 включно.
 
-let i = 0;
-while (i <= 20) {
-  console.log(i);
-  i += 1;
+let counter = 0;
+while (counter <= 20) {
+  console.log(counter);
+  counter += 1;
 }
 
 // Задача 7
@@ -160,7 +155,6 @@ function getNumbers(min, max) {
       sum += i;
     }
   }
-
   return sum;
 }
 
@@ -174,9 +168,8 @@ console.log(getNumbers(1, 10));
 
 function min(a, b) {
   if (typeof a !== 'number' || typeof b !== 'number') {
-    return 'Not a Number';
+    return 'Not a number!';
   }
-
   return a < b ? a : b;
 }
 
@@ -198,9 +191,9 @@ function isAdult(age) {
 // Задача 10
 
 // Напишіть функцію fizzBuzz(num), яка приймає число і перевіряє кожне число від 1 до num:
-// Якщо число ділитися  без остачі на 3 - виводить в консоль 'fizz',
-// якщо ділиться  без остачі на 5 - виводить в консоль 'buzz',
-// якщо ділиться  без остачі і на 3, і на 5 - виводить в консоль 'fizzbuzz'.
+// Якщо число ділиться без остачі на 3 - виводить в консоль 'fizz',
+// якщо ділиться без остачі на 5 - виводить в консоль 'buzz',
+// якщо ділиться без остачі і на 3, і на 5 - виводить в консоль 'fizzbuzz'.
 
 function fizzBuzz(num) {
   for (let i = 1; i <= num; i++) {
