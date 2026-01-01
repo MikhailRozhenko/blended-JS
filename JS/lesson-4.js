@@ -51,14 +51,14 @@ console.log(nodeListTitleh3);
 
 // 9 - для кожного елмента h3 додай class="active", який змінить колір заголовка на червоний колір
 
-nodeListTitleh3.forEach((element) => {
+nodeListTitleh3.forEach(element => {
   element.classList.add('active');
 });
 
 // 10 - знайти елемент li який має атрибут data-topic з значенням "navigation" і виведи його в консоль;
 
 const navigationLiElement = document.querySelector(
-  'li[data-topic="navigation"]'
+  'li[data-topic="navigation"]',
 );
 
 console.log(navigationLiElement);
@@ -78,7 +78,7 @@ navigationLiElementText.textContent = 'Я змінив тут текст!';
 const currentTopic = 'manipulation';
 
 const currentTopicElement = document.querySelector(
-  `[data-topic="${currentTopic}"]`
+  `[data-topic="${currentTopic}"]`,
 );
 
 console.log(currentTopicElement);
@@ -130,7 +130,7 @@ const P =
 
 classListElement.insertAdjacentHTML(
   'beforeend',
-  `<li><h3>${h3}</h3><p>${P}</p></li>`
+  `<li><h3>${h3}</h3><p>${P}</p></li>`,
 );
 
 // 20 - очисти список
@@ -172,7 +172,7 @@ const formInput = document.querySelector('.js-username-input');
 
 const span = document.querySelector('.js-username-output');
 
-formInput.addEventListener('input', (event) => {
+formInput.addEventListener('input', event => {
   const inputTextLength = event.target.value.length;
   if (inputTextLength < 6) {
     formInput.classList.add('success');
@@ -192,7 +192,7 @@ formInput.addEventListener('input', (event) => {
 // якщо ж поле пусте, то зроби `outline` => `'3px solid red'`,
 // якщо при фокусі поле непусте, то `outline` => `'3px solid green'`
 
-formInput.addEventListener('focus', (event) => {
+formInput.addEventListener('focus', event => {
   const inputText = event.target.value;
   if (inputText === '') {
     formInput.style.outline = '3px solid red';
@@ -205,7 +205,7 @@ formInput.addEventListener('focus', (event) => {
 // якщо ж поле пусте, то зроби `outline` => `'3px solid red'`,
 // якщо при фокусі поле непусте, то `outline` => `'3px solid lime'`
 
-formInput.addEventListener('blur', (event) => {
+formInput.addEventListener('blur', event => {
   const inputTextBlur = event.target.value;
   if (inputTextBlur === '') {
     formInput.style.outline = '3px solid red';
@@ -229,7 +229,7 @@ formInput.addEventListener('blur', (event) => {
 const form = document.querySelector('.js-contact-form');
 const checkBox = document.querySelector('.js-policy-checkbox');
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', event => {
   event.preventDefault();
   const inputValue = event.target.elements.userName.value.trim();
   const checkBoxValue = event.target.elements.accept.checked;
